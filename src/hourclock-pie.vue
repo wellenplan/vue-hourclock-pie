@@ -17,6 +17,7 @@ import {
 } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import { Context as DatalabelsContext } from "chartjs-plugin-datalabels";
+import invert from 'invert-color';
 
 export interface DataProps {
   label: string;
@@ -42,14 +43,29 @@ const props = withDefaults(defineProps<Props>(), {
 const options = {
   plugins: {
     datalabels: {
+      display: 'auto',
+      anchor: 'end',
+      align: 'start',
       formatter: function (_value: Number, ctx: DatalabelsContext): string {
         // @ts-ignore
         return ctx.chart.data.labels[ctx.dataIndex] || "";
       },
-      anchor: "end",
-      clamp: true,
-      align: "start",
-      clip: false,
+      color: function(ctx: DatalabelsContext): string {
+        // @ts-ignore
+        return invert(ctx.dataset.backgroundColor[ctx.dataIndex]);
+      },
+      rotation: function(ctx: DatalabelsContext): number {
+        // @ts-ignore
+        const valuesBefore = ctx.dataset.data.slice(0, ctx.dataIndex).reduce((a, b) => a+ b, 0);
+        // @ts-ignore
+        const sum = ctx.dataset.data.reduce((a, b) => a + b, 0);
+        // @ts-ignore
+        const rotation = ((valuesBefore + ctx.dataset.data[ctx.dataIndex] /2) /sum *360);
+        return rotation < 180 ? rotation-90 : rotation+90;
+      },
+      font: {
+        weight: 'bold',
+      },
     },
     legend: {
       display: false,
