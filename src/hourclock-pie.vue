@@ -55,7 +55,8 @@ const options = {
       display: false,
     },
   },
-} as PluginChartOptions<"pie">;
+  borderWidth: 0,
+} as unknown as PluginChartOptions<"pie">;
 
 const data = computed(() => {
   const { data, resolution, emptyColor } = props;
