@@ -22,7 +22,7 @@
     "postbuild": "rimraf ./dist/types/dev ./dist/types/src/entry.d.ts"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.10",
+    "@babel/core": "^7.17.12",
     "@babel/preset-env": "^7.17.12",
     "@babel/preset-typescript": "^7.17.12",
     "@rollup/plugin-alias": "^3.1.9",
