@@ -39,7 +39,7 @@
     "@vue/vue3-jest": "^28.0.0",
     "@zerollup/ts-transform-paths": "^1.7.18",
     "canvas": "^2.9.1",
-    "chart.js": "^3.7.1",
+    "chart.js": "^3.8.0",
     "chartjs-plugin-datalabels": "^2.0.0",
     "cross-env": "^7.0.3",
     "invert-color": "^2.0.0",
@@ -60,7 +60,7 @@
     "vue-chartjs": "^4.1.0"
   },
   "peerDependencies": {
-    "chart.js": "^3.7.1",
+    "chart.js": "^3.8.0",
     "chartjs-plugin-datalabels": "^2.0.0",
     "vue": "^3.2.36",
     "vue-chartjs": "^4.1.0"
