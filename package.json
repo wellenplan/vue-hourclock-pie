@@ -44,7 +44,7 @@
     "cross-env": "^7.0.3",
     "invert-color": "^2.0.0",
     "jest-environment-jsdom": "^28.1.0",
-    "jest-fail-on-console": "^2.4.1",
+    "jest-fail-on-console": "^2.4.2",
     "minimist": "^1.2.6",
     "postcss": "^8.4.14",
     "rimraf": "^3.0.2",
