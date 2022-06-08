@@ -48,7 +48,7 @@
     "minimist": "^1.2.6",
     "postcss": "^8.4.14",
     "rimraf": "^3.0.2",
-    "rollup": "^2.75.5",
+    "rollup": "^2.75.6",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.32.1",
