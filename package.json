@@ -43,7 +43,7 @@
     "chartjs-plugin-datalabels": "^2.1.0",
     "cross-env": "^7.0.3",
     "invert-color": "^2.0.0",
-    "jest-environment-jsdom": "^29.0.1",
+    "jest-environment-jsdom": "^29.0.3",
     "jest-fail-on-console": "^3.0.1",
     "minimist": "^1.2.6",
     "postcss": "^8.4.16",
