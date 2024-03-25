@@ -1,19 +1,7 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`hourclock pie should not render {} 1`] = `
-Array [
-  Array [
-    "[Vue warn]: Missing required prop: \\"data\\"",
-    "
-",
-    " at <HourclockPie",
-    "ref=\\"VTU_COMPONENT\\"",
-    ">",
-    "
-",
-    " at <VTUROOT>",
-  ],
-]
+exports[`hourclock > pie > should render { data: [ { label: 'top of the hour jingle', value: 60, color: '#ff0000' } ] } 1`] = `
+"<div><canvas role="img" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" height="0" width="0">
+    <p></p>
+  </canvas></div>"
 `;
-
-exports[`hourclock pie should render { data: [Array] } 1`] = `"<div class=\\"\\"><canvas id=\\"pie-chart\\" width=\\"0\\" height=\\"0\\" style=\\"display: block; box-sizing: border-box; height: 0px; width: 0px;\\"></canvas></div>"`;

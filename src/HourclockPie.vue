@@ -1,7 +1,7 @@
 <template>
-  <template v-if="props.data">
-    <Pie :chart-data="data" :chart-options="options" />
-  </template>
+  <div v-if="props.data">
+    <Pie :data="data" :options="options" />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -12,20 +12,20 @@ import {
   Title,
   Tooltip,
   ArcElement,
-  PluginChartOptions,
+  type PluginChartOptions,
   CategoryScale,
 } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
-import { Context as DatalabelsContext } from "chartjs-plugin-datalabels";
-import invert from 'invert-color';
+import { type Context as DatalabelsContext } from "chartjs-plugin-datalabels";
+import invert from "invert-color";
 
-export interface DataProps {
+interface DataProps {
   label: string;
   value: number;
   color: string;
 }
 
-export interface Props {
+interface Props {
   data: DataProps[];
   resolution?: number;
   emptyColor?: string;
@@ -43,28 +43,31 @@ const props = withDefaults(defineProps<Props>(), {
 const options = {
   plugins: {
     datalabels: {
-      display: 'auto',
-      anchor: 'end',
-      align: 'start',
-      formatter: function (_value: Number, ctx: DatalabelsContext): string {
-        // @ts-ignore
+      display: "auto",
+      anchor: "end",
+      align: "start",
+      formatter: function (_value: number, ctx: DatalabelsContext): string {
+        // @ts-expect-error ts thinks the label could be none
         return ctx.chart.data.labels[ctx.dataIndex] || "";
       },
-      color: function(ctx: DatalabelsContext): string {
-        // @ts-ignore
+      color: function (ctx: DatalabelsContext): string {
+        // @ts-expect-error ts thinks the color could be none
         return invert(ctx.dataset.backgroundColor[ctx.dataIndex]);
       },
-      rotation: function(ctx: DatalabelsContext): number {
-        // @ts-ignore
-        const valuesBefore = ctx.dataset.data.slice(0, ctx.dataIndex).reduce((a, b) => a+ b, 0);
-        // @ts-ignore
+      rotation: function (ctx: DatalabelsContext): number {
+        const valuesBefore = ctx.dataset.data
+          .slice(0, ctx.dataIndex)
+        // @ts-expect-error ts thinks a + [ a + b ] is possible
+          .reduce((a, b) => a + b, 0);
+        // @ts-expect-error ts thinks a + [ a + b ] is possible
         const sum = ctx.dataset.data.reduce((a, b) => a + b, 0);
-        // @ts-ignore
-        const rotation = ((valuesBefore + ctx.dataset.data[ctx.dataIndex] /2) /sum *360);
-        return rotation < 180 ? rotation-90 : rotation+90;
+        const rotation =
+        // @ts-expect-error ts thinks the data could be empty 
+          ((valuesBefore + ctx.dataset.data[ctx.dataIndex] / 2) / sum) * 360;
+        return rotation < 180 ? rotation - 90 : rotation + 90;
       },
       font: {
-        weight: 'bold',
+        weight: "bold",
       },
     },
     legend: {

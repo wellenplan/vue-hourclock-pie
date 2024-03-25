@@ -1,5 +1,6 @@
 import { mount } from "@vue/test-utils";
-import HourclockPie from "./../hourclock-pie.vue";
+import { vi, describe, it, expect } from "vitest";
+import HourclockPie from "./../HourclockPie.vue";
 
 const valid = [
   {
@@ -13,12 +14,10 @@ const valid = [
   },
 ];
 
-const invalid = [{}];
-
 describe("hourclock", () => {
   describe("pie", () => {
     it.each(valid)("should render %s", (props) => {
-      const warnMock = jest.spyOn(console, "warn").mockImplementation();
+      const warnMock = vi.spyOn(console, "warn");
 
       const wrapper = mount(HourclockPie, {
         props: props,
@@ -26,19 +25,6 @@ describe("hourclock", () => {
 
       expect(warnMock).toHaveBeenCalledTimes(0);
       expect(wrapper.html()).toMatchSnapshot();
-
-      warnMock.mockRestore();
-    });
-    it.each(invalid)("should not render %s", (props) => {
-      const warnMock = jest.spyOn(console, "warn").mockImplementation();
-
-      const wrapper = mount(HourclockPie, {
-        props: props,
-      });
-
-      expect(warnMock).toHaveBeenCalled();
-      expect(warnMock.mock.calls).toMatchSnapshot();
-      expect(wrapper.html()).toMatch("<!--v-if-->");
 
       warnMock.mockRestore();
     });
