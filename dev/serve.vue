@@ -33,6 +33,6 @@ export default defineComponent({
 
 <template>
   <div id="app">
-    <hourclock-pie :data="data" emptyColor="#aaa" />
+    <hourclock-pie :data="data" empty-color="#aaa" />
   </div>
 </template>
