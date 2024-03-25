@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`hourclock pie should not render {} 1`] = `
-Array [
-  Array [
-    "[Vue warn]: Missing required prop: \\"data\\"",
+[
+  [
+    "[Vue warn]: Missing required prop: "data"",
     "
 ",
     " at <HourclockPie",
-    "ref=\\"VTU_COMPONENT\\"",
+    "ref="VTU_COMPONENT"",
     ">",
     "
 ",
@@ -16,4 +16,4 @@ Array [
 ]
 `;
 
-exports[`hourclock pie should render { data: [Array] } 1`] = `"<div class=\\"\\"><canvas id=\\"pie-chart\\" width=\\"0\\" height=\\"0\\" style=\\"display: block; box-sizing: border-box; height: 0px; width: 0px;\\"></canvas></div>"`;
+exports[`hourclock pie should render { data: [Array] } 1`] = `"<div class=""><canvas id="pie-chart" width="0" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;"></canvas></div>"`;
